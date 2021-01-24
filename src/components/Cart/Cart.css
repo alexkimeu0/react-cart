@@ -1,0 +1,7 @@
+.cart {
+    flex: .2;
+    background-color: white;
+    height: fit-content;
+    padding: 1rem;
+    border-radius: .3rem;
+}
