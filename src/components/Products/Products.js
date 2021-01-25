@@ -6,19 +6,19 @@ import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
 import './Products.css'
 
-const Products = ({ items }) => {
+const Products = ({ items, addToCart, removeItem }) => {
     return (
         <div className="products">
             <div className="products__items">
             {
-                items.map(item => (
+                items?.map(item => (
                     <div className="products__item">
                         <img src={item.image} alt="" />
                         <h5><Truncate lines="1">{item.title}</Truncate>...</h5>
                         <p><Truncate lines="1">{item.description}</Truncate>...</p>
                         <div className="products__cta">
-                            <IconButton><AddShoppingCartIcon /></IconButton>
-                            <IconButton><RemoveShoppingCartIcon /></IconButton>
+                            <IconButton onClick={() => addToCart(item.id)}><AddShoppingCartIcon /></IconButton>
+                            <IconButton onClick={() => removeItem(item.id)}><RemoveShoppingCartIcon /></IconButton>
                         </div>
                     </div>
                 ))

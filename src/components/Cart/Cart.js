@@ -1,7 +1,7 @@
 import React from 'react'
 import './Cart.css'
 
-const Cart = () => {
+const Cart = ({ items }) => {
     return (
         <div className="cart">
             <h3>Your Cart</h3>    
@@ -14,12 +14,17 @@ const Cart = () => {
                     <th>Total</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Title</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Total</td>
-                    </tr>
+                    {
+                        items?.map(item => (
+                            <tr>
+                                <td>{item.title}</td>
+                                <td>{item.price}</td>
+                                <td>Quantity</td>
+                                <td>Total</td>
+                            </tr>
+                        ))
+                    }
+                    
                 </tbody>
             </table>
         </div>
